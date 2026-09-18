@@ -2,5 +2,7 @@
   "name": "Residencial Lumina - Venda de Apartamentos",
   "description": "Landing page de alta conversão para venda de apartamentos modernos de 2 a 4 dormitórios em localização nobre.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

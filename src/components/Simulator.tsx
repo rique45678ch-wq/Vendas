@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Calculator, ArrowUpRight, HelpCircle, Check, Landmark } from 'lucide-react';
 import { FORMS_URL } from '../data/realEstateData';
+import { trackLeadInterest } from '../utils/analytics';
 
 export const Simulator: React.FC = () => {
   const [propertyPrice, setPropertyPrice] = useState<number>(498000);
@@ -203,6 +204,7 @@ export const Simulator: React.FC = () => {
                 href={FORMS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackLeadInterest(`simulador-valor-${propertyPrice}`)}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-sm shadow-xl shadow-amber-500/20 transition-all hover:scale-[1.01]"
               >
                 <span>Tenho Interesse</span>

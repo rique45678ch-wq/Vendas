@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { APARTMENTS, FORMS_URL } from '../data/realEstateData';
 import { ApartmentUnit } from '../types';
+import { trackLeadInterest } from '../utils/analytics';
 
 export const FloorPlans: React.FC = () => {
   const [selectedUnit, setSelectedUnit] = useState<ApartmentUnit>(APARTMENTS[1]); // Default to 2 dorms
@@ -166,6 +167,7 @@ export const FloorPlans: React.FC = () => {
                 href={FORMS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackLeadInterest(`planta-${selectedUnit.name}`)}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-stone-950 hover:bg-stone-900 text-amber-400 hover:text-amber-300 font-bold text-sm shadow-md hover:shadow-lg transition-all"
               >
                 <span>Tenho Interesse</span>

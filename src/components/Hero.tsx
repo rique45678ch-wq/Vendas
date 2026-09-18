@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, CheckCircle2, Sparkles, Shield, MapPin, Eye } from 'lucide-react';
 import { FORMS_URL } from '../data/realEstateData';
+import { trackLeadInterest } from '../utils/analytics';
 
 export const Hero: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'living' | 'fachada' | 'suite' | 'rooftop'>('living');
@@ -79,6 +80,7 @@ export const Hero: React.FC = () => {
                 href={FORMS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackLeadInterest('hero-main')}
                 className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 bg-[length:200%_auto] text-stone-950 text-base font-bold tracking-wide shadow-xl shadow-amber-500/25 hover:shadow-2xl hover:shadow-amber-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 <span>Tenho Interesse</span>

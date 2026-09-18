@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Sparkles, CheckCircle2, Clock, ShieldCheck } from 'lucide-react';
 import { FORMS_URL } from '../data/realEstateData';
+import { trackLeadInterest } from '../utils/analytics';
 
 export const CtaBanner: React.FC = () => {
   return (
@@ -35,6 +36,7 @@ export const CtaBanner: React.FC = () => {
             href={FORMS_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackLeadInterest('cta-final-banner')}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-stone-950 text-lg font-black tracking-wide shadow-2xl shadow-amber-500/30 hover:shadow-amber-500/50 hover:scale-105 active:scale-95 transition-all"
           >
             <span>Tenho Interesse</span>

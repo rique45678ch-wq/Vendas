@@ -1,6 +1,7 @@
 import React from 'react';
 import { Building2, Phone, Mail, MapPin, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { FORMS_URL } from '../data/realEstateData';
+import { trackLeadInterest } from '../utils/analytics';
 
 export const Footer: React.FC = () => {
   return (
@@ -88,6 +89,7 @@ export const Footer: React.FC = () => {
               href={FORMS_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackLeadInterest('footer-presentation')}
               className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs shadow-md transition-all"
             >
               <span>Tenho Interesse</span>

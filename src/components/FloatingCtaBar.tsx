@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Phone, MessageSquare } from 'lucide-react';
 import { FORMS_URL } from '../data/realEstateData';
+import { trackLeadInterest } from '../utils/analytics';
 
 export const FloatingCtaBar: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -46,6 +47,7 @@ export const FloatingCtaBar: React.FC = () => {
             href={FORMS_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackLeadInterest('floating-mobile-bar')}
             className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-extrabold text-xs tracking-tight shadow-md"
           >
             <span>Tenho Interesse</span>
@@ -73,6 +75,7 @@ export const FloatingCtaBar: React.FC = () => {
           href={FORMS_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackLeadInterest('floating-desktop-pill')}
           className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-xs shadow-lg transition-transform hover:scale-105"
         >
           <span>Tenho Interesse</span>

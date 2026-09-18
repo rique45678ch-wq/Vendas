@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Building2, Menu, X, ArrowUpRight, Phone } from 'lucide-react';
 import { FORMS_URL } from '../data/realEstateData';
+import { trackLeadInterest } from '../utils/analytics';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -78,6 +79,7 @@ export const Navbar: React.FC = () => {
             href={FORMS_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackLeadInterest('navbar-desktop')}
             className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 text-sm font-bold tracking-wide shadow-md shadow-amber-500/20 hover:from-amber-400 hover:to-amber-500 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
             <span>Tenho Interesse</span>
@@ -91,6 +93,7 @@ export const Navbar: React.FC = () => {
             href={FORMS_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackLeadInterest('navbar-mobile-header')}
             className="sm:hidden inline-flex items-center justify-center px-3.5 py-1.5 rounded-full bg-amber-500 text-stone-950 text-xs font-bold tracking-tight shadow-sm"
           >
             Tenho Interesse
@@ -128,7 +131,10 @@ export const Navbar: React.FC = () => {
                 href={FORMS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  trackLeadInterest('navbar-mobile-drawer');
+                  setMobileMenuOpen(false);
+                }}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-500 text-stone-950 font-bold text-sm shadow-md"
               >
                 <span>Tenho Interesse</span>
